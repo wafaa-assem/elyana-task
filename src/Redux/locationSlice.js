@@ -29,7 +29,7 @@ export const getCities = createAsyncThunk(
         `https://elyana-backend.web-allsafeeg.com/api/v1/cities?per_page=-1&filter[governorate_id]=${id}`
       )
       .then((response) => {
-        console.log("response", response);
+        // console.log("response", response);
         return response.data.data; // el data rag3a direct hena
       })
       .catch((error) => {
@@ -47,7 +47,7 @@ export const getAreas = createAsyncThunk(
         `https://elyana-backend.web-allsafeeg.com/api/v1/areas?filter[city_id]=${id}`
       )
       .then((response) => {
-        console.log("response", response);
+        // console.log("response", response);
         return response.data.data; // el data rag3a direct hena
       })
       .catch((error) => {
@@ -71,7 +71,7 @@ const locationSlice = createSlice({
     builder.addCase(getGov.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isError = false;
-      console.log("data gat", action.payload); // action shayel el data 3latol ba2a hena
+      // console.log("data gat", action.payload); // action shayel el data 3latol ba2a hena
       state.governorates = action.payload;
     });
     builder.addCase(getGov.pending, (state) => {

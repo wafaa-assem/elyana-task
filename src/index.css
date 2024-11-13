@@ -10,3 +10,17 @@ body {
 .active {
   color: red;
 }
+
+.tabs-lifted > .tab:is(input:checked){
+  width: 100%;
+  color: #0DB760;
+  font-weight:600 ;
+  font-family:"Montserrat";
+  font-size: 18px;
+  border-radius: 5px;
+
+
+}
+.tab:is(input:checked):before{
+  width: 0% !important;
+}

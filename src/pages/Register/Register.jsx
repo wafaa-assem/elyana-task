@@ -7,14 +7,9 @@ import * as Yup from "yup";
 import { registerMethod } from "../../Redux/authSlice";
 import { FaSpinner } from "react-icons/fa";
 import toast from "react-hot-toast";
-import axios from "axios";
 import { getAreas, getCities, getGov } from "../../Redux/locationSlice";
 
 const Register = () => {
-  // const [governorates, setGovernorates] = useState([]);
-  // const [centers, setCenters] = useState([]);
-  // const [areas, setAreas] = useState([]); // State for areas
-
   const navigate = useNavigate();
   const [selected, setSelected] = useState("commercial");
   const dispatch = useDispatch();
@@ -97,58 +92,15 @@ const Register = () => {
     registerFormikObj.setFieldValue("user_type", type); // Update Formik field
   };
 
-  // useEffect(() => {
-  //   const fetchGovernorates = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://elyana-backend.web-allsafeeg.com/api/v1/cities?per_page=-1"
-  //       );
-  //       setGovernorates(response.data.data);
-  //     } catch (error) {
-  //       console.error("Error fetching governorates:", error);
-  //     }
-  //   };
-
-  //   fetchGovernorates();
-  // }, []);
-
-  // const handleGovernorateChange = async (governorateId) => {
-  //   registerFormikObj.setFieldValue("governorate_id", governorateId);
-  //   registerFormikObj.setFieldValue("city_id", ""); // Reset city_id
-  //   registerFormikObj.setFieldValue("area_id", ""); // Reset area_id
-  //   setCenters([]); // Clear existing centers
-  //   setAreas([]);
-  //   try {
-  //     const response = await axios.get(
-  //       `https://elyana-backend.web-allsafeeg.com/api/v1/cities?per_page=-1&filter[governorate_id]=${governorateId}`
-  //     );
-  //     setCenters(response.data.data);
-  //     setAreas([]); // Reset areas when a new governorate is selected
-  //   } catch (error) {
-  //     console.error("Error fetching centers:", error);
-  //   }
-  // };
-
-  // const handleCityChange = async (cityId) => {
-  //   registerFormikObj.setFieldValue("city_id", cityId);
-  //   try {
-  //     const response = await axios.get(
-  //       `https://elyana-backend.web-allsafeeg.com/api/v1/areas?filter[city_id]=${cityId}`,
-
-  //     );
-  //     setAreas(response.data.data);
-  //   } catch (error) {
-  //     console.error("Error fetching areas:", error);
-  //   }
-  // };
+  
 
   useEffect(() => {
     dispatch(getGov());
   }, []);
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className=" flex flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="">
           <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-gray-900 mb-5">
             مرحبا بك في أليانا 👋
           </h2>
@@ -156,7 +108,7 @@ const Register = () => {
             من فضلك املئ هذه الاستمارة
           </p>
         </div>
-        <div className="mt-10 mx-auto p-12 shadow-md rounded-lg w-[644px] h-[766px]">
+        <div className="mt-10 mx-auto p-12 shadow-md rounded-lg ">
           <form onSubmit={registerFormikObj.handleSubmit} className="space-y-6">
             <h3 className="mt-10 text-center text-3xl font-bold tracking-tight text-gray-900 mb-5">
               إنشاء حساب
@@ -173,7 +125,6 @@ const Register = () => {
               >
                 عميل منزلي
               </button>
-
               <button
                 type="button"
                 onClick={() => handleUserTypeChange("commercial")}
@@ -186,8 +137,9 @@ const Register = () => {
                 عميل تجاري
               </button>
             </div>
-            {/* name */}
+            
             <div className="flex justify-between">
+              {/* name */}
               <div className="mt-2">
                 <input
                   id="name"
@@ -226,8 +178,9 @@ const Register = () => {
                   )}
               </div>
             </div>
-            {/* gov */}
+            
             <div className="flex justify-between">
+              {/* gov */}
               <div className="mt-2">
                 <select
                   id="governorate_id"

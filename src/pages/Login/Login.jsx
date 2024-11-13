@@ -7,7 +7,6 @@ import { loginMethod } from "../../Redux/authSlice";
 import { FaSpinner } from "react-icons/fa";
 import toast from "react-hot-toast";
 
-
 const Login = () => {
   const dispatch = useDispatch();
   const { isLoading, isError } = useSelector((store) => store.authReducer);
@@ -15,7 +14,6 @@ const Login = () => {
   const loginFormikObj = useFormik({
     initialValues: {
       mobile: "",
-
       password: "",
     },
     onSubmit: (values) => {
@@ -25,17 +23,13 @@ const Login = () => {
       formData.append("password", values.password);
       // call api hena
       dispatch(loginMethod(formData))
-        // .then((res) => {
-        //   console.log("res", res);
-        //   if (res.meta.requestStatus === "fulfilled") {
-        //     toast.success(res.payload.data.message);
-        //     localStorage.setItem("userToken", res.payload.data.data);
-        //     navigate("/");
-        //   } else {
-        //     toast.error(res.payload.response.data.message);
-        //   }
-        // })
-        // .catch((err) => {});
+        .then((res) => {
+          console.log("res", res);
+          if (res.meta.requestStatus === "fulfilled") {
+            navigate("/");
+          }
+        })
+        .catch((err) => {});
     },
     validationSchema: Yup.object({
       mobile: Yup.string().required("رقم الهاتف مطلوب"),
@@ -44,12 +38,10 @@ const Login = () => {
         .required("كلمة المرور مطلوبة"),
     }),
   });
-  if(isError){
-    toast.error(isError)
+  if (isError) {
+    toast.error(isError);
   }
-  // useEffect(()=>{
-    
-  // },[isError])
+
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -114,8 +106,7 @@ const Login = () => {
               name="password"
               type="password"
               placeholder="الرقم السري"
-              className="block w-[548px] h-[42px] p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm/6"
-              onChange={loginFormikObj.handleChange}
+className="block w-full md:w-[266px] h-[42px] p-2 rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 sm:text-sm"              onChange={loginFormikObj.handleChange}
               onBlur={loginFormikObj.handleBlur}
               value={loginFormikObj.values.password}
             />

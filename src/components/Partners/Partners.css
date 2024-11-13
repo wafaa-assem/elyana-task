@@ -1,0 +1,47 @@
+/* .swiper-rtl .swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  border: 2px solid #a0a0a0;
+  border-radius: 50%;
+  height: fit-content;
+  width: fit-content;
+  padding: 18px;
+}
+
+.swiper-rtl .swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  color: #a0a0a0;
+  width: auto;
+  height: auto;
+  font-size: 16px;
+  font-weight: 800;
+} */
+
+
+.swiper-rtl .swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  color: #a0a0a0;
+  font-size: 22px;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  

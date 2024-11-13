@@ -3,15 +3,17 @@ import Navbar from "../Navbar/Navbar";
 import { Provider } from "react-redux";
 import { reduxStore } from "../../Redux/reduxStore";
 import { Toaster } from "react-hot-toast";
+import Footer from "../Footer/Footer";
+import Contact from "../Contact/Contact";
 
 const Layout = () => {
   return (
     <>
       <Provider store={reduxStore}>
         <Navbar />
-        <div className="container mx-auto p-10 max-w-screen-xl">
-          <Outlet />
-        </div>
+        <Outlet />
+        {/* <Contact /> */}
+        <Footer />
         <Toaster position="top-left" />
       </Provider>
     </>

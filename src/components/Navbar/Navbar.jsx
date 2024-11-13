@@ -13,7 +13,6 @@ const Navbar = () => {
   const { userToken } = useSelector((store) => store.authReducer);
 
   const handleLogout = () => {
-
     dispatch(logoutMethod())
       .then((res) => {
         console.log("res", res);
@@ -28,8 +27,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-100 px-4 py-3 border-t border-gray-300" dir="rtl">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="py-2 border-t border-gray-300" dir="rtl">
+      <div className="container mx-auto max-w-screen-xl px-8 md:px-12 flex justify-between items-center font-[Montserrat]">
         {/* Logo on the left */}
         <img className="w-[77px] h-[78px]" src={logo} alt="logo" />
 

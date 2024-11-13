@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'custom-left': '5px 0px 100px 0px rgba(247, 247, 247, 0.5)', 
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 }
